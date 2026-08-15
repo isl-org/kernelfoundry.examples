@@ -1,0 +1,8 @@
+task_name: matmul # name for the kernel generation task
+job_name: matmul_bmg # a name for the specific job you want to run, e.g. optimizing for Battlemage
+
+gpu_arch: bmg # Short name of the target architecture, must match your GPU
+language: SYCL # The target language
+
+# further run parameters (e.g. number of iterations, branches, etc for the evolutionary algorithm),
+# see configs/run.yaml in the KernelFoundry repository

@@ -1,0 +1,25 @@
+// The KernelFoundry MCP server, for VS Code's agent mode.
+//
+// Keep this at workspace scope. A window connected to the dev container starts what it finds
+// here inside the container, which is where the paths below exist; the same entry copied into
+// your user configuration would start on the machine running VS Code and fail with
+// "spawn /usr/local/bin/entrypoint.sh ENOENT".
+//
+// entrypoint.sh is not decoration: it is what puts oneAPI on the path. VS Code spawns the
+// server as a plain process, which inherits neither the image's ENTRYPOINT nor an interactive
+// shell's profile. Point command at the interpreter directly and the server still starts and
+// still lists its tools, but every kernel compile fails with "Compiling SYCL source to object
+// file failed".
+{
+    "servers": {
+        "kernelfoundry-mcp": {
+            "type": "stdio",
+            "command": "/usr/local/bin/entrypoint.sh",
+            "args": [
+                "/opt/venv/bin/python",
+                "-m",
+                "kernelfoundry.mcp_server"
+            ]
+        }
+    }
+}

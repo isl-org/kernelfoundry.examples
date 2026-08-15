@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "kernelfoundry-mcp": {
+            "type": "stdio",
+            "command": "/usr/local/bin/entrypoint.sh",
+            "args": [
+                "/opt/venv/bin/python",
+                "-m",
+                "kernelfoundry.mcp_server"
+            ]
+        }
+    }
+}

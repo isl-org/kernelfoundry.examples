@@ -1,0 +1,11 @@
+runs/
+results/
+__pycache__/
+.pytest_cache/
+*.so
+.env
+
+# Driver versions a run records in its working directory
+IGC_REVISION
+NEO_REVISION
+OCL_DRIVER_VERSION
